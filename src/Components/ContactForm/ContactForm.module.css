@@ -1,0 +1,16 @@
+.form-container{
+  border: 1px solid black;
+  width: 400px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container input{
+  width: 50%;
+}
+
+.form-container button {
+  margin-top: 10px;
+  width: 120px;
+}
