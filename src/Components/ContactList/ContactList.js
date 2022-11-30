@@ -6,7 +6,6 @@ const ContactList = (props) => {
 	const { contacts, filter, deleteFunction } = props;
 	return (
 		<ul>
-			{console.log("test")}
 			{contacts
 				.filter((contact) => contact.name.toLowerCase().includes(filter.toLowerCase()))
 				.map((contact) => {

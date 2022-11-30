@@ -1,25 +1,28 @@
-import React, { setState, useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import css from "./App.module.css";
 import ContactForm from "./Components/ContactForm/ContactForm";
 import Filter from "./Components/Filter/Filter";
 import ContactList from "./Components/ContactList/ContactList";
 
 const App = () => {
-
 	const [contacts, setContacts] = useState([]);
 	const [filter, setFilter] = useState("");
+	const isMounted = useRef(false);
 
 	const KEY = "Contacts";
 
-	// componentDidMount() {
-	// 	const savedContacts = JSON.parse(localStorage.getItem(this.KEY));
-	// 	savedContacts && this.setState({ contacts: savedContacts });
-	// }
+	useEffect(() => {
+		const savedContacts = JSON.parse(localStorage.getItem(KEY));
+		savedContacts && setContacts([...savedContacts]);
+	}, []);
 
-	// componentDidUpdate() {
-	// 	const { contacts } = this.state;
-	// 	localStorage.setItem(this.KEY, JSON.stringify(contacts));
-	// }
+	useEffect(() => {
+		if (isMounted.current) {
+			localStorage.setItem(KEY, JSON.stringify(contacts));
+		} else {
+			isMounted.current = true;
+		}
+	}, [contacts]);
 
 	const checkContact = (newContact) => {
 		const isInBase = contacts.some((contact) => contact.name === newContact.name);
