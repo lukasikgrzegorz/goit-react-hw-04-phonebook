@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 
 const ContactList = (props) => {
 	const { contacts, filter, deleteFunction } = props;
+
 	return (
 		<ul>
 			{contacts
