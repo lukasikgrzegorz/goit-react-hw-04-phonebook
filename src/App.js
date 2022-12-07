@@ -52,11 +52,11 @@ const App = () => {
 	return (
 		<div className={css["container"]}>
 			<h1>Phonebook</h1>
-			<ContactForm onSubmit={addContact}></ContactForm>
+			<ContactForm onSubmit={addContact}/>
 
 			<h2>Contacts</h2>
-			<Filter changeHandler={changeFilterValue}></Filter>
-			<ContactList filter={filter} contacts={contacts} deleteFunction={deleteUser}></ContactList>
+			<Filter changeHandler={changeFilterValue}/>
+			<ContactList filter={filter} contacts={contacts} deleteFunction={deleteUser}/>
 		</div>
 	);
 };
